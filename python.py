@@ -13,15 +13,13 @@ from web_scraper import run_playwright
 load_dotenv()
 openai_key = os.getenv("openai_key")
 
-schema = {
-        "properties": {
-            "name": {"type": "string"},
-            "points": {"type": "integer"},
-            "comments": {"type": "integer"},
-            "url": {"type":"string"}
-        },
-        "required": ["name", "points", "comments"],
-    }
+# Step 2: Implementing a pydantic class. Explain why!
+class RecordWebsite(BaseModel):
+     name: str = Field(..., description="The name of the post", example="What's new in Python")
+     points: str = Field(..., description="The points of the post")
+     comments: int = Field(..., description="The number of comments of the post")
+     url: str = Field(..., description="The url of the post")
+
 
 async def main():
     site_data = await run_playwright("https://news.ycombinator.com/news")
