@@ -23,10 +23,12 @@ class RecordWebsite(BaseModel):
 async def main():
     site_data = await run_playwright("https://news.ycombinator.com/news")
     print(site_data)
-    
+
     llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613", openai_api_key=openai_key)
     
-    result = create_extraction_chain_pydantic(pydantic_schema=[RecordWebsite], llm=llm).run(site_data)
+    result = create_extraction_chain_pydantic(pydantic_schema=RecordWebsite, llm=llm).run(site_data)
+
+    # list comprehension
     response_dict = [item.dict() for item in result]
     print(response_dict)
 
