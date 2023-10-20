@@ -1,3 +1,4 @@
+from typing import Optional
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 from langchain.chat_models import ChatOpenAI
@@ -21,7 +22,7 @@ openai_key = os.getenv("openai_key")
 class RecordWebsite(BaseModel):
      name: str = Field(..., description="The name of the post", example="What's new in Python")
      points: str = Field(..., description="The points of the post")
-     comments: int = Field(..., description="The number of comments of the post")
+     comments: Optional[int] = Field(None, description="The number of comments of the post")
      url: str = Field(..., description="The url of the post")
 
 
