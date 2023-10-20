@@ -1,3 +1,19 @@
+### Branches
+
+Use branches for each step
+`switch branch <master, step2, step3>`
+
+- master for the first project
+- step 2 for pydantic class
+- step 3 for flask
+
+### Installation:
+
+Use a virtual env with this project and install the requirements file that you find in de branch 'step 3'
+
+video explanation:
+https://www.youtube.com/watch?v=qszG9vhy_v4
+
 ### Why use function calling:
 
 Function calling is a useful way to get structured output from an LLM for a wide range of purposes. By providing schemas for "functions", the LLM will choose one and attempt to output a response matching that schema.
