@@ -41,5 +41,11 @@ def clean_up_text(text):
     clean_text = '\n'.join(chunk for chunk in chunks if chunk)
     return clean_text
 
-# Usage:
-# output = await run_playwright("https://example.com")
+
+# This conditional is for when you run this script directly,
+# It won't run when you import it as a module.
+if __name__ == "__main__":
+    import asyncio
+    # Test the function
+    result = asyncio.run(run_playwright("https://example.com"))
+    print(result)
