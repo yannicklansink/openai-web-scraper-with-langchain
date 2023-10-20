@@ -1,8 +1,7 @@
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
-from langchain.chains import create_extraction_chain
 from langchain.chat_models import ChatOpenAI
-from langchain.chains import create_extraction_chain
+from langchain.chains import create_extraction_chain, create_extraction_chain_pydantic
 from dotenv import load_dotenv
 import os
 import asyncio
@@ -24,14 +23,12 @@ class RecordWebsite(BaseModel):
 async def main():
     site_data = await run_playwright("https://news.ycombinator.com/news")
     print(site_data)
-
     
-
     llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613", openai_api_key=openai_key)
     
-    extraction_chain = create_extraction_chain(schema, llm)
-    result = extraction_chain.run(site_data)
-    print(result)
+    result = create_extraction_chain_pydantic(pydantic_schema=[RecordWebsite], llm=llm).run(site_data)
+    response_dict = [item.dict() for item in result]
+    print(response_dict)
 
 
 # Execute async function main

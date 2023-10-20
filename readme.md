@@ -20,3 +20,23 @@ Using a Pydantic class over a JSON object can offer several advantages when work
 Pydantic classes provide a way to define a schema for data, ensuring that the data adheres to specified types and constraints. This can be especially beneficial in applications that handle data from various sources, where ensuring consistency and correctness of data is crucial. In contrast, JSON objects don't have a built-in mechanism for validation or type enforcement, which could lead to potential issues when processing the data.
 
 Pydantic also enables the use of editor support, autocomplete, and other development functionality that might be handy for you to use.
+
+https://twitter.com/ethanjdev/status/1676320043456397312
+
+### Thougths on using this approach for web scraping
+
+### What can you do further
+
+- Efficient data harvesting
+  By marrying OpenAI function calling with LangChain's scraping mechanisms, you could create robust pipelines for efficiently harvesting data from the web.
+
+Some more examples include:
+
+- Automated Market Analysis Platform:
+  Create a platform that automatically scrapes financial news, market data, and analyst reports to provide real-time market analysis and insights. Utilize OpenAI to process and analyze the collected data to generate actionable investment recommendations.
+
+- Competitor Monitoring System:
+  Develop a system that continuously monitors competitors’ websites, press releases, and social media channels to track their product releases, pricing changes, and marketing campaigns. Use OpenAI to summarize findings and compare strategies over time.
+
+- Automated Supply Chain Monitoring:
+  Build a system that continuously monitors global supply chain information by scraping data from logistics providers, governmental trade databases, and news outlets.
